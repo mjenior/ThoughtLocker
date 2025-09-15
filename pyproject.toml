@@ -1,0 +1,36 @@
+[build-system]
+requires = ["hatchling>=1.20.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ThoughtLocker"
+version = "0.1.0"
+description = "DuckDB-backed prompt management for multi-agent LLM systems"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+  { name = "Matt Jenior", email = "mattjenior@gmail.com" }
+]
+keywords = ["prompts", "duckdb", "llm", "multi-agent", "ai"]
+dependencies = [
+  "duckdb>=1.0.0",
+  "PyYAML>=6.0.2",
+]
+
+[project.urls]
+Homepage = "https://github.com/mjenior/ThoughtLocker"
+Repository = "https://github.com/mjenior/ThoughtLocker"
+
+[tool.hatch.build.targets.wheel]
+packages = ["thoughtlocker"]
+
+[tool.hatch.build]
+exclude = [
+  ".venv",
+  "**/__pycache__/**",
+]
+
+[tool.uv]
+index-url = "https://pypi.org/simple"
+dev-dependencies = []

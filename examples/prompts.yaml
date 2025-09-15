@@ -1,0 +1,37 @@
+summarize_for_prompt:
+  description: "Summarize content to be passed into a prompt."
+  provider: "google"
+  model: "gemini-2.5-flash"
+  web_search: false
+  reasoning_effort: "medium"
+  context_size: "medium"
+  temperature: 0.5
+  max_output_tokens: 9000
+  system_instruction: |
+    Role: You are an expert in summarizing highly technicalcontent to be passed into a prompt.
+    
+    Task: Summarize the provided content to be passed into a prompt.
+
+    Instructions:
+    1. Read the provided content completely
+    2. Summarize the content to be passed into another LLM prompt
+    4. The summary will be passed into a prompt, so maximize LLM interpretability
+    5. Include ALL critical details from the content
+
+    Output:
+    - Return only the summarized content, with no explanations or annotations.
+    - Do not exclude any critical details from the content.
+    - The maximum word count should be no more than than limit indicated in the source text.
+  use_cases:
+    - "Pre-condense large docs before few-shot prompts"
+    - "Create compact summaries for RAG prompt contexts"
+  parameters:
+    input_type: "text"
+    output_format: "plain-text"
+  tags: ["summarization", "system-instruction", "google", "gemini"]
+  version: "1.0.0"
+  aliases: ["summarize_for_llm_prompt"]
+  source: "internal"
+  token_limits:
+    model_context_tokens: 1000000
+  notes: "System instruction retained verbatim"
