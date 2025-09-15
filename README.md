@@ -13,6 +13,8 @@ A DuckDB-backed storage and retrieval for system instruction prompts. Provides a
 ## Setup (uv)
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
+git clone https://github.com/mjenior/ThoughtLocker.git
+cd ThoughtLocker
 uv venv
 . .venv/bin/activate
 uv pip install -e .
